@@ -27,8 +27,28 @@ export const getTasks = async (req, res) => {
             return res.status(404).json({ message: 'No tasks found' });
         }
         
-        res.json(tasks);
+        res.status(200).json(tasks);
     } catch (err) {
         res.status(500).json({ error: err.message });
+    }
+};
+
+
+
+// Update a task by ID
+export const updateTask = async (req, res) => {
+    try {
+        const { title, description, completed } = req.body;
+        const task = await Task.findByIdAndUpdate(
+            req.params.id,
+            { title, description, completed },
+            { new: true }
+        );
+
+        if (!task) return res.status(404).json({ error: 'Task not found' });
+        
+        res.json(task);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
     }
 };
