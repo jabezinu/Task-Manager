@@ -1,2 +1,3 @@
 # /node_modules
-# i was supposed to /node_modules but for the sake of you to see it, I left it here.
+# .env
+# iwas not supposed to push the node_modules folder and .env file but for the sake of you to see the project structure
