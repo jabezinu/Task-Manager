@@ -1,7 +1,12 @@
+import { Route, Routes } from "react-router-dom";
+
 export default function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/todos/create" element={<Add />} />
+      <Route path="/todos/show" element={<Show />} />
+      <Route path="/todos/delete" element={<Delete />} />
+    </Routes>
   )
 }
